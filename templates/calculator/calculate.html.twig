@@ -1,1 +1,55 @@
-Insert calculator output here, please!
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+
+            <div class="row">
+                <div class="input-field col s4">
+                    {{ form_row(form.valueA) }}
+                </div>
+                <div class="input-field col s4">
+                    {{ form_row(form.calculation) }}
+                </div>
+                <div class="input-field col s4">
+                    {{ form_row(form.valueB) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="row">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        {{ form_end(form) }}
+
+        {% if calculation is not null %}
+        <div class="row">
+            <div class="col12">
+                Result: {{ calculation }}
+            </div>
+        </div>
+        {% endif %}                
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            console.log(elems);
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+{% endblock %}
