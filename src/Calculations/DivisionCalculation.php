@@ -22,7 +22,7 @@ class DivisionCalculation implements CalculationInterface
      */
     public function calculate(float $valueA, float $valueB) : float
     {
-        return $valueA + $valueB;
+        return $valueA / $valueB;
     }
 
     /**
